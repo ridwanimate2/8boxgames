@@ -22,16 +22,20 @@
 
 
 const express = require("express");
+const Controller = require("./controllers/controller");
 const app = express()
 const port = 3000
 
-app.get("/", (req, res) => {
-    res.send("Hello World")
-})
+// app.get("/", (req, res) => {
+//     res.send("Hello World")
+// })
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
 
-app.set('view engine','ejs')
-app.use(express.urlencoded({extended:false}))
+app.set('view engine', 'ejs')
+app.use(express.urlencoded({ extended: false }))
+
+
+app.get("/",Controller.datagame)

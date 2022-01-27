@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Game.belongsTo(models.User, {foreignKey: "UserId"})
-      Game.belongsToMany(models.Users, {through: models.Library})
+      Game.belongsTo(models.User, { foreignKey: "UserId" })
+      Game.belongsToMany(models.User, { through: models.Library })
     }
   }
   Game.init({
@@ -28,16 +28,14 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true
       }
     },
-    price: DataTypes.INTEGER,
-    gender: {
-      type: DataTypes.STRING,
+    price: {
+      type: DataTypes.INTEGER,
       validate: {
         notEmpty: true
       }
     },
-    rating: DataTypes.INTEGER,
-    gender: {
-      type: DataTypes.STRING,
+    rating: {
+      type: DataTypes.INTEGER,
       validate: {
         notEmpty: true
       }
