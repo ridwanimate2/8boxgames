@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Counter-Strike: Global Offensive",
+    "genre": "Shooter",
+    "price": 769108,
+    "rating": 87,
+    "imageurl": "https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg?t=1643244879",
+    "UserId": 3,
+    "description": "Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago. CS: GO features new maps, characters, weapons, and game modes, and delivers updated versions of the classic CS content (de_dust2, etc.)."
+  },
+  {
+    "title": "Dota 2",
+    "genre": "MOBA",
+    "price": 512665,
+    "rating": 83,
+    "imageurl": "https://cdn.cloudflare.steamstatic.com/steam/apps/570/header.jpg?t=1643075130",
+    "UserId": 3,
+    "description": "Every day, millions of players worldwide enter battle as one of over a hundred Dota heroes. And no matter if it's their 10th hour of play or 1,000th, there's always something new to discover. With regular updates that ensure a constant evolution of gameplay, features, and heroes, Dota 2 has taken on a life of its own."
+  },
+  {
+    "title": "PUBG: BATTLEGROUNDS",
+    "genre": "Shooter",
+    "price": 418334,
+    "rating": 55,
+    "imageurl": "https://cdn.cloudflare.steamstatic.com/steam/apps/578080/header.jpg?t=1643162424",
+    "UserId": 18,
+    "description": "Play PUBG: BATTLEGROUNDS for free. Land on strategic locations, loot weapons and supplies, and survive to become the last team standing across various, diverse Battlegrounds."
+  },
+  {
+    "title": "Apex Legends",
+    "genre": "Shooter",
+    "price": 486370,
+    "rating": 85,
+    "imageurl": "https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1643223099",
+    "UserId": 18,
+    "description": "Apex Legends is the award-winning, free-to-play Hero shooter from Respawn Entertainment. Master an ever-growing roster of legendary characters with powerful abilities and experience strategic squad play and innovative gameplay in the next evolution of Hero Shooter and Battle Royale."
+  },
+  {
+    "title": "Grand Theft Auto V",
+    "genre": "Action",
+    "price": 172900,
+    "rating": 83,
+    "imageurl": "https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg?t=1643224035",
+    "UserId": 11,
+    "description": "Grand Theft Auto V for PC offers players the option to explore the award-winning world of Los Santos and Blaine County in resolutions of up to 4k and beyond, as well as the chance to experience the game running at 60 frames per second."
+  },
+  {
+    "title": "NARAKA: BLADEPOINT",
+    "genre": "Action",
+    "price": 587317,
+    "rating": 78,
+    "imageurl": "https://cdn.cloudflare.steamstatic.com/steam/apps/1203220/header.jpg?t=1643245160",
+    "UserId": 6,
+    "description": "BRUCE LEE and his iconic Nunchucks now have joined NARAKA: BLADEPOINT, the up to 60-player PVP mythical action combat experience with martial arts inspired melee combat, gravity defying mobility, vast arsenals of melee & ranged weapons, legendary customizable heroes with epic abilities."
+  },
+  {
+    "title": "MIR4",
+    "genre": "RPG",
+    "price": 313608,
+    "rating": 63,
+    "imageurl": "https://cdn.cloudflare.steamstatic.com/steam/apps/1623660/header.jpg?t=1643165434",
+    "UserId": 18,
+    "description": "MIR4 is a free-to-play open world Asian-fantasy MMORPG that can be cross-played on both PC and mobile devices. MIR4 is full of action and features numerous large scale clan PVP battles. Join now and become a legend."
+  },
+  {
+    "title": "Wallpaper Engine",
+    "genre": "Aplication",
+    "price": 270405,
+    "rating": 97,
+    "imageurl": "https://cdn.cloudflare.steamstatic.com/steam/apps/431960/header.jpg?t=1643130662",
+    "UserId": 3,
+    "description": "Use stunning live wallpapers on your desktop. Animate your own images to create new wallpapers or import videos/websites and share them on the Steam Workshop!"
+  },
+  {
+    "title": "Rust",
+    "genre": "Survival",
+    "price": 744646,
+    "rating": 86,
+    "imageurl": "https://cdn.cloudflare.steamstatic.com/steam/apps/252490/header.jpg?t=1642373808",
+    "UserId": 11,
+    "description": "The only aim in Rust is to survive. Everything wants you to die - the island�s wildlife and other inhabitants, the environment, other survivors. Do whatever it takes to last another night."
+  },
+  {
+    "title": "MONSTER HUNTER RISE",
+    "genre": "Action",
+    "price": 254672,
+    "rating": 85,
+    "imageurl": "https://cdn.cloudflare.steamstatic.com/steam/apps/1446780/header.jpg?t=1643248652",
+    "UserId": 3,
+    "description": "Rise to the challenge and join the hunt! In Monster Hunter Rise, the latest installment in the award-winning and top-selling Monster Hunter series, you�ll become a hunter, explore brand new maps and use a variety of weapons to take down fearsome monsters as part of an all-new storyline."
+  },
+  {
+    "title": "Destiny 2",
+    "genre": "RPG",
+    "price": 109939,
+    "rating": 83,
+    "imageurl": "https://cdn.cloudflare.steamstatic.com/steam/apps/1085660/header.jpg?t=1643234977",
+    "UserId": 8,
+    "description": "Destiny 2 is an action MMO with a single evolving world that you and your friends can join anytime, anywhere, absolutely free."
+  },
+  {
+    "title": "Team Fortress 2",
+    "genre": "Shooter",
+    "price": 327142,
+    "rating": 93,
+    "imageurl": "https://cdn.cloudflare.steamstatic.com/steam/apps/440/header.jpg?t=1641414299",
+    "UserId": 8,
+    "description": "Nine distinct classes provide a broad range of tactical abilities and personalities. Constantly updated with new game modes, maps, equipment and, most importantly, hats!"
+  },
+  {
+    "title": "New World",
+    "genre": "RPG",
+    "price": 439368,
+    "rating": 68,
+    "imageurl": "https://cdn.cloudflare.steamstatic.com/steam/apps/1063730/header.jpg?t=1643242898",
+    "UserId": 8,
+    "description": "Explore a thrilling, open-world MMO filled with danger and opportunity where you'll forge a new destiny on the supernatural island of Aeternum."
+  },
+  {
+    "title": "ARK: Survival Evolved",
+    "genre": "Survival",
+    "price": 628782,
+    "rating": 80,
+    "imageurl": "https://cdn.cloudflare.steamstatic.com/steam/apps/346110/header.jpg?t=1643244045",
+    "UserId": 18,
+    "description": "Stranded on the shores of a mysterious island, you must learn to survive. Use your cunning to kill or tame the primeval creatures roaming the land, and encounter other players to survive, dominate... and escape!"
+  },
+  {
+    "title": "Warframe",
+    "genre": "Action",
+    "price": 482074,
+    "rating": 89,
+    "imageurl": "https://cdn.cloudflare.steamstatic.com/steam/apps/230410/header.jpg?t=1643085183",
+    "UserId": 8,
+    "description": "Awaken as an unstoppable warrior and battle alongside your friends in this story-driven free-to-play online action game"
+  },
+  {
+    "title": "Dead by Daylight",
+    "genre": "Horror",
+    "price": 89217,
+    "rating": 81,
+    "imageurl": "https://cdn.cloudflare.steamstatic.com/steam/apps/381210/header.jpg?t=1643248077",
+    "UserId": 18,
+    "description": "Dead by Daylight is a multiplayer (4vs1) horror game where one player takes on the role of the savage Killer, and the other four players play as Survivors, trying to escape the Killer and avoid being caught and killed."
+  },
+  {
+    "title": "Terraria",
+    "genre": "Survival",
+    "price": 356763,
+    "rating": 97,
+    "imageurl": "https://cdn.cloudflare.steamstatic.com/steam/apps/105600/header.jpg?t=1641935844",
+    "UserId": 6,
+    "description": "Dig, fight, explore, build! Nothing is impossible in this action-packed adventure game. Four Pack also available!"
+  },
+  {
+    "title": "Sid Meier's Civilization VI",
+    "genre": "Strategy",
+    "price": 440549,
+    "rating": 82,
+    "imageurl": "https://cdn.cloudflare.steamstatic.com/steam/apps/289070/header.jpg?t=1643117766",
+    "UserId": 18,
+    "description": "Civilization VI offers new ways to interact with your world, expand your empire across the map, advance your culture, and compete against history�s greatest leaders to build a civilization that will stand the test of time. Play as one of 20 historical leaders including Roosevelt (America) and Victoria (England)."
+  },
+  {
+    "title": "Tom Clancy's Rainbow Six Siege",
+    "genre": "Shooter",
+    "price": 340789,
+    "rating": 86,
+    "imageurl": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/header.jpg?t=1643260327",
+    "UserId": 11,
+    "description": "Tom Clancy's Rainbow Six Siege is the latest installment of the acclaimed first-person shooter franchise developed by the renowned Ubisoft Montreal studio."
+  },
+  {
+    "title": "Project Zomboid",
+    "genre": "Survival",
+    "price": 424591,
+    "rating": 89,
+    "imageurl": "https://cdn.cloudflare.steamstatic.com/steam/apps/108600/header.jpg?t=1643261176",
+    "UserId": 3,
+    "description": "Project Zomboid is the ultimate in zombie survival. Alone or in MP: you loot, build, craft, fight, farm and fish in a struggle to survive. A hardcore RPG skillset, a vast map, massively customisable sandbox and a cute tutorial raccoon await the unwary. So how will you die? All it takes is a bite.."
+  }
+]

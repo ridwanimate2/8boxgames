@@ -1,0 +1,77 @@
+[
+  {
+    "gender": "Female",
+    "age": 62,
+    "UserId": 1
+  },
+  {
+    "gender": "Male",
+    "age": 16,
+    "UserId": 2
+  },
+  {
+    "gender": "Female",
+    "age": 38,
+    "UserId": 4
+  },
+  {
+    "gender": "Male",
+    "age": 32,
+    "UserId": 5
+  },
+  {
+    "gender": "Female",
+    "age": 23,
+    "UserId": 7
+  },
+  {
+    "gender": "Female",
+    "age": 15,
+    "UserId": 9
+  },
+  {
+    "gender": "Male",
+    "age": 58,
+    "UserId": 10
+  },
+  {
+    "gender": "Male",
+    "age": 53,
+    "UserId": 12
+  },
+  {
+    "gender": "Male",
+    "age": 16,
+    "UserId": 13
+  },
+  {
+    "gender": "Male",
+    "age": 51,
+    "UserId": 14
+  },
+  {
+    "gender": "Female",
+    "age": 59,
+    "UserId": 15
+  },
+  {
+    "gender": "Female",
+    "age": 40,
+    "UserId": 16
+  },
+  {
+    "gender": "Male",
+    "age": 58,
+    "UserId": 17
+  },
+  {
+    "gender": "Male",
+    "age": 56,
+    "UserId": 19
+  },
+  {
+    "gender": "Female",
+    "age": 40,
+    "UserId": 20
+  }
+]
