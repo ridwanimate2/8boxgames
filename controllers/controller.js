@@ -3,15 +3,28 @@ const { Op } = require('sequelize')
 const formatPrice = require('../helpers/formatPrice')
 const userBill = require('../helpers/userBill')
 
-const { consumers } = require("nodemailer/lib/xoauth2");
+
 const { Game, Library, User, Consumer } = require("../models/index");
 class Controller {
+
+    static home(req, res) {
+        res.render('home', { title: "Welcome to 8Box Games" })
+    }
+
+
+
+
+
+
+
     static datagame(req, res) {
+
+        let iduser = req.session.user.UserId
         let { title } = req.query
         if (!title) {
             Game.findAll()
                 .then(data => {
-                    res.render("home", { data, formatPrice, title: 'Home' })
+                    res.render("user/userhome", { data, formatPrice, title: 'Home', dataid: iduser })
                 })
                 .catch(err => {
                     res.send(err)
@@ -26,31 +39,31 @@ class Controller {
                 }
             })
                 .then(data => {
-                    res.render("home", { data, formatPrice, title: 'Home' })
+                    res.render("user/userhome", { data, formatPrice, title: 'Home', dataid: iduser })
                 })
                 .catch(err => {
                     res.send(err)
                 })
         }
-
     }
-    static buyGame(req, res) {
 
-        let { id } = req.params
+    static buyGame(req, res) {
+        let iduser = req.session.user.UserId
+        let { devid } = req.params
         Game.findAll({
             include: {
                 model: User
             },
             where: {
-                id: id
+                id: devid
             }
         })
             .then(data => {
 
                 data.forEach(el => {
                     Library.create({
-                        UserId: el.User.id,
-                        GameId: el.id
+                        UserId: iduser,
+                        GameId: devid
                     })
                         .then(() => {
                             res.redirect('/user/libraries')
@@ -66,16 +79,22 @@ class Controller {
     }
 
     static getLibraries(req, res) {
+        let iduser = req.session.user.UserId
+
         Library.findAll({
             include: [{
                 model: Game
             },
             {
                 model: User
-            }]
-        })
+            }],
+            where: {
+                UserId: iduser
+            }
+        }
+        )
             .then(data => {
-                res.render('libraries', { data, formatPrice, userBill, title: 'Libraries' })
+                res.render('user/libraries', { data, formatPrice, userBill, title: 'Libraries', dataid: iduser })
             })
             .catch(err => {
                 res.send(err)
@@ -84,10 +103,13 @@ class Controller {
     }
 
     static deleteLibrary(req, res) {
-        let { id } = req.params
+        let iduser = req.session.user.UserId
+        let { devid } = req.params
         Library.destroy({
             where: {
-                GameId: id
+                UserId: iduser,
+                GameId: devid
+
             }
         })
             .then(() => {
@@ -97,29 +119,6 @@ class Controller {
                 res.send(err)
             })
     }
-
-
-
-
-    //STATIC DEV//
-
-    static devHome(req, res) {
-        Game.findAll({
-            include: {
-                model: User
-            }
-        })
-            .then(data => {
-                res.send(data)
-            })
-        // res.render('devHome', {title: 'Dev Home'})
-    }
-
-
-
-
-
-
 
 
 
@@ -153,10 +152,10 @@ class Controller {
 
 
                 .then(data => {
-                    const newconsumer = { age: parseInt(age), gender, Userid: data.dataValues.id, createdAt: new Date(), updatedAt: new Date() }
+                    const newconsumer = { age: parseInt(age), gender, UserId: data.dataValues.id, createdAt: new Date(), updatedAt: new Date() }
                     return Consumer.create(newconsumer)
                 })
-                .then(data => res.redirect('/'))
+                .then(data => res.redirect('/user'))
 
                 .catch(err => {
                     if (err.name == "SequelizeValidationError") {
@@ -181,42 +180,109 @@ class Controller {
     }
 
     static postuserlogin(req, res) {
-        console.log(req.session.users);
-        const {email,password} = req.body
+        // console.log(req.session.user);
+        const { email, password } = req.body
         User.findOne({
-            where:{email:email}
+            where: { email: email }
         })
-        .then(data=>{
-            
-            if(data){
-                let login = bcryptjs.compareSync(password,data.dataValues.password)
-                if(login){
-                    req.session.user = {UserId: data.dataValues.id, role: data.dataValues.role}
-                    res.redirect('/')
-                }else{
+            .then(data => {
+
+                if (data) {
+                    let login = bcryptjs.compareSync(password, data.dataValues.password)
+                    if (login) {
+                        req.session.user = { UserId: data.dataValues.id, role: data.dataValues.role }
+                        res.redirect('/user')
+                    } else {
+                        let error = `Incorrect Email/Password`
+                        res.redirect(`/user/login?error=${error}`)
+                    }
+                } else {
                     let error = `Incorrect Email/Password`
-                    res.redirect(`/user/login?error=${error}`)
+                    return res.redirect(`/user/login?error=${error}`)
                 }
-            }else{
-                let error = `Incorrect Email/Password`
-                return res.redirect(`/user/login?error=${error}`)
-            }
-        })
-        .catch(err=>{
-            res.send(err)
-        })
+            })
+            .catch(err => {
+                res.send(err)
+            })
 
     }
 
-    static getuserlogout(req,res){
-        req.session.destroy(err=>{
-            if(err){
+    static getuserlogout(req, res) {
+        req.session.destroy(err => {
+            if (err) {
                 res.send(err)
-            } else{
+            } else {
                 res.redirect('/user')
             }
         })
     }
+
+
+    //--------------------------------------------------------------------
+
+
+    static devHome(req, res) {
+        Game.findAll({
+            include: {
+                model: User
+            }
+        })
+            .then(data => {
+                res.send(data)
+            })
+        // res.render('devHome', {title: 'Dev Home'})
+    }
+
+
+
+    static getdevregist(req, res) {
+        let error = []
+        if (req.query.error) {
+            error = req.query.error.split(',')
+        }
+        res.render('dev/devregist', { title: 'Register', error })
+    }
+
+    static postdevregist(req, res) {
+        const { name, email, password, age, gender } = req.body
+
+        User.findOne({ where: { email: email } })
+            .then(data => {
+                if (data) {
+                    let error = 'Email already registered'
+                    return res.redirect(`/dev/regist?error=${error}`)
+                }
+                const newuser = { name, email, password, role: 'developer', createdAt: new Date(), updatedAt: new Date() }
+                return User.create(newuser)
+            })
+
+            .then(data => res.redirect('/dev'))
+
+            .catch(err => {
+                if (err.name == "SequelizeValidationError") {
+                    let error = err.error.map(v => v.message)
+                    res.redirect(`/dev/regist?error=${error}`)
+                } else {
+                    res.send(err)
+                }
+            })
+
+
+    }
+
+    static getdevlogin(req, res) {
+
+    }
+    static postdevlogin(req, res) {
+
+    }
+    static getdevlogout(req, res) {
+
+    }
+
+
+
+
 
 
 }

@@ -27,6 +27,7 @@ const Controller = require("./controllers/controller");
 const app = express()
 const port = 3000
 
+const router = require('./routes/index')
 // app.get("/", (req, res) => {
 //     res.send("Hello World")
 // })
@@ -49,47 +50,12 @@ app.use(session({
     }
 }))
 
+app.use('/', router)
 
 
-app.get("/user/regist", Controller.getuserregist)
-app.post("/user/regist", Controller.postuserregist)
-
-
-app.get("/user/login", Controller.getuserlogin)
-app.post("/user/login", Controller.postuserlogin)
-
-app.get("/user/logout", Controller.getuserlogout)
-
-
-app.use((req, res, next) => {
-    
-    if (req.session.user) {
-        if (req.session.user.role == 'consumer') {
-            next()
-        } else {
-            let error = 'Maaf anda seorang developer. Silahkan masuk di page developer.'
-            res.redirect(`/user/login?error=${error}`)
-        }
-    } else {
-        let error = 'Harap login terlebih dahulu.'
-        res.redirect(`/user/login?error=${error}`)
-    }
-})
-
-
-app.get("/user",(req,res)=> res.redirect('/'))
-
-app.get("/", Controller.datagame)
-app.get('/user/libraries', Controller.getLibraries)
-app.get('/user/libraries/:id/delete', Controller.deleteLibrary)
-
-
-
-app.get("/user/:id", Controller.buyGame)
 
 
 //developer
 // app.get("/dev/regist",Controller.getdevregist)
 // app.post("/dev/regist",Controller.postdevregist)
 
-app.get("/dev", Controller.devHome)

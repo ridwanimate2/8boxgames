@@ -1,4 +1,4 @@
-<%- include('partials/head.ejs') %>
+<%- include('partials/headempty.ejs') %>
 
 
     <div class="container my-3" style="width:60%;">
@@ -17,15 +17,15 @@
         <form action="/dev/regist" method="post">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" name="name" class="form-control" id="name" placeholder="Insert Name">
+                <input required type="text" name="name" class="form-control" id="name" placeholder="Insert Name">
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" id="email" placeholder="Insert Email">
+                <input required type="email" name="email" class="form-control" id="email" placeholder="Insert Email">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="password" placeholder="Insert Password">
+                <input required type="password" name="password" class="form-control" id="password" placeholder="Insert Password">
             </div>
        
 

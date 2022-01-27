@@ -1,31 +1,19 @@
 <%- include('partials/head.ejs') %>
 
-<div class="container">
-  <form action="/" method="get" style="width: 18rem;float: right;">
-    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="title">
-    <button class="btn btn-success" type="submit" style="float: right;">Search</button>
-  </form>
-  <h2 class="text-white mt-3">Welcome to 8Box Games</h2>
-  <br>
-  <h2 class="text-white">Game List</h2>
-  
-
-
-  <div class="row">
-   <% data.forEach(el => { %>
-    
-   <div class="card" style="width: 20rem;">
-     <img src="<%= el.imageurl %> " class="card-img-top">
-     <div class="card-body">
-       <h5 class="card-title"><%= el.title %> </h5>
-       <p class="card-text"><%= el.description %> </p>
-       <p><%= formatPrice(el.price) %></p>
-       <a href="/user/<%= el.id %>" class="btn btn-primary">BUY</a>
-     </div>
-   </div> 
-   <% })  %> 
+<div class="container h-100">
+  <div class="d-flex h-100 text-center align-items-center">
+    <div class="w-100 text">
+      <h1>Selamat Datang di 8Box Games</h1>
+      <h3>Silakan Masuk Sebagai</h3>
+      <a class="btn btn-primary" href="/user" role="button">user</a>
+      <a class="btn btn-primary" href="/dev" role="button">developer</a>
+      <!-- <h1 class="display-3">Video Header</h1>
+      <p class="lead mb-0">Using HTML5 Video and Bootstrap</p> -->
+    </div>
   </div>
-    
-</div> 
+</div>
+
+
+
  
 <%- include('partials/foot.ejs') %>

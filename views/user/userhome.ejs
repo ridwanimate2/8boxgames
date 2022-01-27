@@ -1,0 +1,31 @@
+<%- include('partials/head.ejs') %>
+
+<div class="container">
+  <form action="/user" method="get" style="width: 18rem;float: right;">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="title">
+    <button class="btn btn-success" type="submit" style="float: right;">Search</button>
+  </form>
+  <h2 class="text-white mt-3">Welcome to 8Box Games</h2>
+  <br>
+  <h2 class="text-white">Game List</h2>
+  
+
+
+  <div class="row">
+   <% data.forEach(el => { %>
+    
+   <div class="card" style="width: 20rem;">
+     <img src="<%= el.imageurl %> " class="card-img-top">
+     <div class="card-body">
+       <h5 class="card-title"><%= el.title %> </h5>
+       <p class="card-text"><%= el.description %> </p>
+       <p><%= formatPrice(el.price) %></p>
+       <a href="/user/buy/<%= el.id %>/<%=dataid%>" class="btn btn-primary">BUY</a>
+     </div>
+   </div> 
+   <% })  %> 
+  </div>
+    
+</div> 
+ 
+<%- include('partials/foot.ejs') %>

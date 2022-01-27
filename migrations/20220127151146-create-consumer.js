@@ -1,6 +1,6 @@
 'use strict';
 module.exports = {
-   up(queryInterface, Sequelize) {
+  up(queryInterface, Sequelize) {
     return queryInterface.createTable('Consumers', {
       id: {
         allowNull: false,
@@ -20,7 +20,9 @@ module.exports = {
           model: {
             tableName: 'Users'
           },
-          key: 'id'
+          key: 'id',
+          onUpdate: "CASCADE",
+          onDelete: "CASCADE"
         }
       },
       createdAt: {
@@ -33,7 +35,7 @@ module.exports = {
       }
     });
   },
-   down(queryInterface, Sequelize) {
+  down(queryInterface, Sequelize) {
     return queryInterface.dropTable('Consumers');
   }
 };
