@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Library.belongsTo(models.User, {foreignKey: "UserId"})
-      Library.belongsTo(models.Game, {foreignKey: "ProductId"})
+      Library.belongsTo(models.Game, {foreignKey: "GameId"})
     }
   }
   Library.init({

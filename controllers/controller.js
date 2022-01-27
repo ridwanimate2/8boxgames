@@ -1,7 +1,7 @@
 const { Game, Library, User, Consumer } = require("../models/index");
 class Controller {
     static datagame(req, res) {
-        Game.findAll()
+        Library.findAll()
             .then(data => {
                 res.send(data)
             })
