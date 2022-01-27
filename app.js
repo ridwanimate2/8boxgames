@@ -39,15 +39,16 @@ app.use(express.urlencoded({ extended: false }))
 
 
 app.get("/",Controller.datagame)
+// app.post("/", Controller.searchGame)
 app.get('/libraries', Controller.getLibraries)
 app.get('/libraries/:id/delete', Controller.deleteLibrary)
 
 
-app.get("/user/regist",Controller.getconregist)
-
+app.get("/user/regist",Controller.getuserregist)
+app.post("/user/regist",Controller.postuserregist)
 app.get("/user/:id", Controller.buyGame)
 
 
 //developer
-app.get("/dev/regist",Controller.getdevregist)
-app.post("/dev/regist",Controller.postdevregist)
+// app.get("/dev/regist",Controller.getdevregist)
+// app.post("/dev/regist",Controller.postdevregist)

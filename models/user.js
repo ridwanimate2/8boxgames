@@ -14,9 +14,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.hasOne(models.Consumer, {foreignKey: "UserId"})
-      User.hasMany(models.Game, {foreignKey: "UserId"})
-      User.belongsToMany(models.Game, {through: models.Library})
+      User.hasOne(models.Consumer, { foreignKey: "UserId" })
+      User.hasMany(models.Game, { foreignKey: "UserId" })
+      User.belongsToMany(models.Game, { through: models.Library })
     }
   }
   User.init({
@@ -30,6 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       validate: {
         notEmpty: true,
+        unique: true,
         isEmail: true
       }
     },

@@ -1,13 +1,17 @@
 <%- include('partials/head.ejs') %>
 <div class="container">
   <div class="col">
+    <% if (!data.length) { %>
+      <br><br>
+      <h3>Sorry you haven't bought the game yet</h3>
+      <% } %>
       <% data.forEach(el => { %>
       <div class="card" style="width: 18rem;">
         <img src="<%= el.Game.imageurl %> " class="card-img-top">
         <div class="card-body">
           <h5 class="card-title"><%= el.Game.title %> </h5>
           <p class="card-text"><%= el.Game.description %> </p>
-          <a href="/libraries/<%= el.GameId  %>/delete " class="btn btn-danger">DELETE</a>
+          <a href="/libraries/<%= el.GameId %>/delete " class="btn btn-danger">DELETE</a>
         </div>
       </div> 
       <% })  %> 
