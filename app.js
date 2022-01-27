@@ -5,8 +5,9 @@
 //npx sequelize-cli model:generate --name Consumer --attributes gender:string,age:integer,UserId:integer
 
 
-//npx sequelize-cli model:generate --name Game --attributes title:string,genre:string,price:integer,rating:integer,imageurl:string,UserId:integer,description:text
+//npx sequelize-cli model:generate --name Game --attributes title:string,genre:string,price:integer,rating:integer,UserId:integer,description:text
 
+//npx sequelize migration:generate --name add-imageurl-on-Game
 
 //npx sequelize-cli model:generate --name Library --attributes UserId:INTEGER,GameId:INTEGER
 
@@ -39,13 +40,18 @@ app.use(express.urlencoded({ extended: false }))
 
 
 app.get("/",Controller.datagame)
-// app.post("/", Controller.searchGame)
-app.get('/libraries', Controller.getLibraries)
-app.get('/libraries/:id/delete', Controller.deleteLibrary)
+app.get('/user/libraries', Controller.getLibraries)
+app.get('/user/libraries/:id/delete', Controller.deleteLibrary)
 
 
 app.get("/user/regist",Controller.getuserregist)
 app.post("/user/regist",Controller.postuserregist)
+
+
+app.get("/user/login",Controller.getuserlogin)
+app.get("/user/login",Controller.postuserlogin)
+
+
 app.get("/user/:id", Controller.buyGame)
 
 

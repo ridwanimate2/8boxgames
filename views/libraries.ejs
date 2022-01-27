@@ -1,20 +1,35 @@
 <%- include('partials/head.ejs') %>
 <div class="container">
-  <div class="col">
     <% if (!data.length) { %>
       <br><br>
       <h3>Sorry you haven't bought the game yet</h3>
       <% } %>
-      <% data.forEach(el => { %>
-      <div class="card" style="width: 18rem;">
-        <img src="<%= el.Game.imageurl %> " class="card-img-top">
+    
+      <div class="row">
+        <% data.forEach(el => { %>
+        <div class="card" style="width: 18rem;">
+          <img src="<%= el.Game.imageurl %> " class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title"><%= el.Game.title %> </h5>
+            <p class="card-text"><%= el.Game.description %> </p>
+            <p><%= formatPrice(el.Game.price) %></p>
+            <a href="/user/libraries/<%= el.GameId %>/delete " class="btn btn-danger">Delete</a>
+          </div>
+        </div> 
+        <% })  %> 
+      </div>
+    <br>
+
+
+    <div>
+      <div class="card">
+        <h5 class="card-header">Total Tagihan Anda</h5>
         <div class="card-body">
-          <h5 class="card-title"><%= el.Game.title %> </h5>
-          <p class="card-text"><%= el.Game.description %> </p>
-          <a href="/libraries/<%= el.GameId %>/delete " class="btn btn-danger">DELETE</a>
+          <h5 class="card-title"><%= userBill(data) %></h5>
+          <p class="card-text"></p>
+          <a href="#" class="btn btn-primary">Send Invoice</a>
         </div>
-      </div> 
-      <% })  %> 
+      </div>
     </div>
 </div> 
 

@@ -1,5 +1,7 @@
 const bcryptjs = require('bcryptjs')
 const { Op } = require('sequelize')
+const formatPrice = require('../helpers/formatPrice')
+const userBill = require('../helpers/userBill')
 
 const { consumers } = require("nodemailer/lib/xoauth2");
 const { Game, Library, User, Consumer } = require("../models/index");
@@ -9,7 +11,7 @@ class Controller {
         if (!title) {
             Game.findAll()
                 .then(data => {
-                    res.render("home", { data, title: 'Home' })
+                    res.render("home", { data, formatPrice, title: 'Home' })
                 })
                 .catch(err => {
                     res.send(err)
@@ -24,7 +26,7 @@ class Controller {
                     }
                 })
                 .then(data => {
-                    res.render("home", { data, title: 'Home' })
+                    res.render("home", { data, formatPrice, title: 'Home' })
                 })
                 .catch(err => {
                     res.send(err)
@@ -51,7 +53,7 @@ class Controller {
                         GameId: el.id
                     })
                         .then(() => {
-                            res.redirect('/libraries')
+                            res.redirect('/user/libraries')
                         })
                         .catch(err => {
                             res.send(err)
@@ -73,7 +75,7 @@ class Controller {
             }]
         })
             .then(data => {
-                res.render('libraries', { data, title: 'Libraries' })
+                res.render('libraries', { data, formatPrice, userBill, title: 'Libraries' })
             })
             .catch(err => {
                 res.send(err)
@@ -89,7 +91,7 @@ class Controller {
             }
         })
             .then(() => {
-                res.redirect('/libraries')
+                res.redirect('/user/libraries')
             })
             .catch(err => {
                 res.send(err)
@@ -150,6 +152,17 @@ class Controller {
                     })
            
         }
+    }
+
+
+    static getuserlogin(req,res){
+        
+
+    }
+    
+    static postuserlogin(req,res){
+        
+
     }
 
 
