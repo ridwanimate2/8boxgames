@@ -14,11 +14,7 @@
 
     <div class="container my-3" style="width:40%;">
 
-        <form action="/user/regist" method="post">
-            <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" name="name" class="form-control" id="name" placeholder="Insert Name">
-            </div>
+        <form action="/user/login" method="post">
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" name="email" class="form-control" id="email" placeholder="Insert Email">
@@ -27,24 +23,12 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" name="password" class="form-control" id="password" placeholder="Insert Password">
             </div>
-            <div class="mb-3">
-                <label for="age" class="form-label">Age</label>
-                <input type="number" name="age" class="form-control" id="age" placeholder="Insert Password">
-
-            </div>
-            <div class="mb-3">
-                <label for="gender" class="form-label">Jenis Kelamin</label>
-                <select class="form-select" name="gender" id="gender">
-                    <option selected disabled>-- Gender --</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select>
-            </div>
+            
             <div class="row">
                 <button type="submit" class="btn btn-primary">Register</button>
 
                 <div class="col-sm-8">
-                    <span>Already have an account?</span> <a href="#">Sign In</a>
+                    <span>Don't have an account?</span> <a href="/user/register">Register Here</a>
                 </div>
             </div>
 

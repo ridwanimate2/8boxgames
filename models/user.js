@@ -30,8 +30,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       validate: {
         notEmpty: true,
-        unique: true,
         isEmail: true
+       
       }
     },
     password: {

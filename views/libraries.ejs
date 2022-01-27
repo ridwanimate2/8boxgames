@@ -1,27 +1,8 @@
 <%- include('partials/head.ejs') %>
-<div class="container">
-    <% if (!data.length) { %>
-      <br><br>
-      <h3>Sorry you haven't bought the game yet</h3>
-      <% } %>
-    
-      <div class="row">
-        <% data.forEach(el => { %>
-        <div class="card" style="width: 18rem;">
-          <img src="<%= el.Game.imageurl %> " class="card-img-top">
-          <div class="card-body">
-            <h5 class="card-title"><%= el.Game.title %> </h5>
-            <p class="card-text"><%= el.Game.description %> </p>
-            <p><%= formatPrice(el.Game.price) %></p>
-            <a href="/user/libraries/<%= el.GameId %>/delete " class="btn btn-danger">Delete</a>
-          </div>
-        </div> 
-        <% })  %> 
-      </div>
-    <br>
 
 
-    <div>
+  <div class="container">
+    <div style="width: 20rem; float: right;">
       <div class="card">
         <h5 class="card-header">Total Tagihan Anda</h5>
         <div class="card-body">
@@ -31,6 +12,27 @@
         </div>
       </div>
     </div>
-</div> 
+      <% if (!data.length) { %>
+        <br><br>
+        <h3>Sorry you haven't bought the game yet</h3>
+        <% } %>
+      
+        <div class="row mt-5">
+          <% data.forEach(el => { %>
+          <div class="card" style="width: 18rem;">
+            <img src="<%= el.Game.imageurl %> " class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title"><%= el.Game.title %> </h5>
+              <p class="card-text"><%= el.Game.description %> </p>
+              <p><%= formatPrice(el.Game.price) %></p>
+              <a href="/user/libraries/<%= el.GameId %>/delete " class="btn btn-danger">Delete</a>
+            </div>
+          </div> 
+          <% })  %> 
+        </div>
+  </div> 
+
+
+
 
 <%- include('partials/foot.ejs') %>

@@ -21,7 +21,7 @@
 // npx sequelize-cli db:migrate
 //npx sequelize-cli db:seed:all
 
-
+const session = require('express-session')
 const express = require("express");
 const Controller = require("./controllers/controller");
 const app = express()
@@ -39,17 +39,50 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
 
 
-app.get("/",Controller.datagame)
+app.use(session({
+    secret: 'login',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        secure: false,
+        sameSite: true
+    }
+}))
+
+
+
+app.get("/user/regist", Controller.getuserregist)
+app.post("/user/regist", Controller.postuserregist)
+
+
+app.get("/user/login", Controller.getuserlogin)
+app.post("/user/login", Controller.postuserlogin)
+
+app.get("/user/logout", Controller.getuserlogout)
+
+
+app.use((req, res, next) => {
+    
+    if (req.session.user) {
+        if (req.session.user.role == 'consumer') {
+            next()
+        } else {
+            let error = 'Maaf anda seorang developer. Silahkan masuk di page developer.'
+            res.redirect(`/user/login?error=${error}`)
+        }
+    } else {
+        let error = 'Harap login terlebih dahulu.'
+        res.redirect(`/user/login?error=${error}`)
+    }
+})
+
+
+app.get("/user",(req,res)=> res.redirect('/'))
+
+app.get("/", Controller.datagame)
 app.get('/user/libraries', Controller.getLibraries)
 app.get('/user/libraries/:id/delete', Controller.deleteLibrary)
 
-
-app.get("/user/regist",Controller.getuserregist)
-app.post("/user/regist",Controller.postuserregist)
-
-
-app.get("/user/login",Controller.getuserlogin)
-app.get("/user/login",Controller.postuserlogin)
 
 
 app.get("/user/:id", Controller.buyGame)
@@ -58,3 +91,5 @@ app.get("/user/:id", Controller.buyGame)
 //developer
 // app.get("/dev/regist",Controller.getdevregist)
 // app.post("/dev/regist",Controller.postdevregist)
+
+app.get("/dev", Controller.devHome)
