@@ -39,3 +39,12 @@ app.use(express.urlencoded({ extended: false }))
 
 
 app.get("/",Controller.datagame)
+app.get("/:id", Controller.buyGame)
+
+
+
+
+
+
+//developer
+app.get("/dev/regist",Controller.devregist)

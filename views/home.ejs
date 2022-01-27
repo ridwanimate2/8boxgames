@@ -1,0 +1,17 @@
+<%- include('partials/head.ejs') %>
+<div class="container">
+  <div class="col">
+      <% data.forEach(el => { %>
+      <div class="card" style="width: 18rem;">
+        <img src="<%= el.imageurl %> " class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title"><%= el.title %> </h5>
+          <p class="card-text"><%= el.description %> </p>
+          <a href="/<%= el.id %> " class="btn btn-primary">BUY</a>
+        </div>
+      </div> 
+      <% })  %> 
+    </div>
+</div> 
+ 
+<%- include('partials/foot.ejs') %>

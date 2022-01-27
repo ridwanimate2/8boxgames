@@ -1,15 +1,23 @@
 const { Game, Library, User, Consumer } = require("../models/index");
 class Controller {
     static datagame(req, res) {
-        Library.findAll()
+        Game.findAll()
             .then(data => {
-                res.send(data)
+                res.render("home", { data ,title: 'Home' })
             })
-            .catch(err=>{
-                console.log(err);
+            .catch(err => {
                 res.send(err)
             })
-            
+
+    }
+    static buyGame(req, res){
+
+    }
+
+
+    static devregist(req,res){
+        let errors =[]
+        res.render('dev/devregist',{title:'Register'})
     }
 }
 
